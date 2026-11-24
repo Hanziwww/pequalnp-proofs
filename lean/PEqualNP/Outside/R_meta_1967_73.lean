@@ -340,7 +340,7 @@ theorem PEqualNP.Outside.R_meta_1967_73
     · have bad := caseOr.1
       rw [actual,bad] at kind
       cases kind
-  let pt (e : Fin 21) : ℕ := (e.val/3 + ([0,1,3] : List ℕ).getD (e.val%3) 0) % 7
+  let pt (e : Fin 21) : ℕ := (e.val/3 + ([0,1,3] : List ℕ).getD (e.val % 3) 0) % 7
   let ln (e : Fin 21) : ℕ := e.val/3
   let onLine (p l : ℕ) : Bool := decide (p=l ∨ p=(l+1)%7 ∨ p=(l+3)%7)
   let yesRow (e : Fin 21) (v : Fin 14) := decide (v.val=pt e ∨ v.val=7+ln e)
