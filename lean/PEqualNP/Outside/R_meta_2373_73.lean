@@ -98,7 +98,7 @@ theorem PEqualNP.Outside.R_meta_2373_73
       exact List.mem_filter.mpr ⟨List.mem_finRange _, (Finset.mem_filter.mp (hB hj)).2⟩)
     simpa only [rectangle,box,Int.zero_add] using q
   have total_score : rectangle Finset.univ Finset.univ = 241 := by decide +kernel
-  have parity_subadditive (a b : ℤ) : (a+b)%2 ≤ a%2+b%2 := by omega
+  have parity_subadditive (a b : ℤ) : (a+b) % 2 ≤ a % 2+b % 2 := by omega
   let contains (t : (Finset (Fin 15) × Finset (Fin 15))) (p q : (Fin 15)) : ℕ := if p∈t.1 ∧ q∈t.2 then 1 else 0
   let multiplicity (T : List (Finset (Fin 15) × Finset (Fin 15))) (p q : (Fin 15)) := (T.map fun t => contains t p q).sum
   have box_all (m : (Fin 15) → (Fin 15) → ℤ) (t : (Finset (Fin 15) × Finset (Fin 15))) :
@@ -128,7 +128,7 @@ theorem PEqualNP.Outside.R_meta_2373_73
       rw [add_boxes]
       simp only [covers,Nat.cast_one,one_mul,box,rowSum]
     have add_scores (S : List (Finset (Fin 15) × Finset (Fin 15))) :
-        (S.map fun t => box weight t.1 t.2).sum + (S.map fun t => box colour t.1 t.2).sum%2 ≤
+        (S.map fun t => box weight t.1 t.2).sum + (S.map fun t => box colour t.1 t.2).sum % 2 ≤
           (S.map fun t => rectangle t.1 t.2).sum := by
       induction S with
       | nil => decide
